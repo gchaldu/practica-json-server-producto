@@ -1,3 +1,29 @@
 {
-  "productos": []
+  "productos": [
+    {
+      "id": "08dd",
+      "nombre": "Apple watch",
+      "precio": 500
+    },
+    {
+      "id": "9c73",
+      "nombre": "Apple 2",
+      "precio": "600"
+    },
+    {
+      "nombre": "Carolina Arch Perfumes 2",
+      "precio": 1500,
+      "id": "b045"
+    },
+    {
+      "id": "ed5c",
+      "nombre": "Apple Macbook",
+      "precio": "6000"
+    },
+    {
+      "id": "6267",
+      "nombre": "Lenovo IdeaPad I3",
+      "precio": "1500"
+    }
+  ]
 }

@@ -1,7 +1,7 @@
-const urlBase = "http://localhost:3000/productos";
+const url = "http://localhost:3000/productos";
 
 //GET
-async function getProductos() {
+export async function getProductos() {
   try {
     const response = await fetch(url);
     const data = await response.json();
@@ -12,7 +12,7 @@ async function getProductos() {
   }
 }
 
-async function getProductos2() {
+export async function getProductos2() {
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -29,7 +29,7 @@ async function getProductos2() {
   }
 }
 
-function getProductosPromise() {
+export function getProductosPromise() {
   return fetch(url, { method: "GET" })
     .then((response) => response.json())
     .then((data) => data)
@@ -38,7 +38,7 @@ function getProductosPromise() {
 
 //POST
 
-function postProducto(producto) {
+export function postProductoPromise(producto) {
   return fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -46,4 +46,35 @@ function postProducto(producto) {
   })
     .then((response) => response)
     .catch((error) => console.log(error));
+}
+
+export async function postProducto(producto) {
+  try {
+    return await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(producto),
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function postProducto2(producto) {
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(producto),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error al postear el producto:", error);
+    throw error;
+  }
 }
