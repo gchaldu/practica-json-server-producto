@@ -20,14 +20,11 @@ async function cargarProductos() {
     const productos = await getProductos();
     listaProductos = productos.map((producto) => ({
       nombre: producto.nombre,
-      precio: parseFloat(producto.precio).toFixed(2), // Asegura que el precio tenga 2 decimales
+      precio: parseFloat(producto.precio).toFixed(2),
     }));
     mostrarProductos();
   } catch (error) {
     console.error("Error al cargar los productos:", error);
-    mostrarError(
-      "No se pudieron cargar los productos. Por favor, intenta más tarde."
-    );
   }
 }
 
